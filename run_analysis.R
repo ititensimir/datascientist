@@ -39,8 +39,8 @@ names(subject_train) <- "subject"
 #merge the previous datasets to a clean one
 myCleanData <- cbind(subject_train, y_train, x_train)
 
-p <- myCleanData[, 3:dim(myCleanData)[2]]
-myCleanDataMean <- aggregate(partial,list(myCleanData$subject, myCleanData$activity), mean)
+toBeAggregated <- myCleanData[, 3:dim(myCleanData)[2]]
+myCleanDataMean <- aggregate(toBeAggregated,list(myCleanData$subject, myCleanData$activity), mean)
 #add column names as previously done with partial datasets
 names(myCleanDataMean)[1] <- "Subject"
 names(myCleanDataMean)[2] <- "Activity"
